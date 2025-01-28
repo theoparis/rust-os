@@ -1,0 +1,36 @@
+cargo-features = ["per-package-target"]
+
+[package]
+name = "kernel"
+version = "0.0.1"
+edition = "2021"
+default-target = "x86_64-unknown-none"
+license = "MIT"
+
+[dependencies]
+tracing = { git = "https://github.com/tokio-rs/tracing", default-features = false, features = [
+    "alloc",
+] }
+tracing-core = { git = "https://github.com/tokio-rs/tracing", default-features = false, features = [
+    "alloc",
+] }
+tracing-subscriber = { git = "https://github.com/tokio-rs/tracing", default-features = false, features = [
+    "alloc",
+] }
+once_cell = { version = "1.20.2", default-features = false, features = [
+    "race",
+    "critical-section",
+] }
+x86_64 = { version = "0.15.1", default-features = false, features = [
+    "abi_x86_interrupt",
+    "instructions",
+    "step_trait",
+] }
+virtio-drivers = "0.8.0"
+linked_list_allocator = "0.10.5"
+uart_16550 = { version = "0.3.2", features = ["stable"] }
+spin = "0.9.8"
+critical-section = { version = "1.2.0", default-features = false }
+
+[features]
+tcp = []

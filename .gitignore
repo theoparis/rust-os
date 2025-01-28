@@ -1,0 +1,9 @@
+/work/
+/build/
+.cache/
+.DS_Store
+*.pyc
+.bacon-locations
+compile_commands.json
+target/
+*.log
