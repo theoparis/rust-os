@@ -1,10 +1,5 @@
 #!/usr/bin/env nu
 
-let SRC = $"($env.HOME)/Documents"
-
-mkdir work
-let WORK = $"($env.PWD)/work"
-
 RUSTC_BOOTSTRAP=1 cargo rustc -p kernel -Zbuild-std=core,alloc --target=x86_64-unknown-none -- -Clink-args=-Tkernel/x86_64-qemu.ld -Clink-args="-no-pie"
 (
     qemu-system-x86_64
